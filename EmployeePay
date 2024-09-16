@@ -39,3 +39,35 @@ Fetching global names, object names from `payroll_service` for auto-completion..
 Query OK, 0 rows affected (0.0122 sec)
  MySQL  localhost:3306 ssl  payroll_service  SQL >
 
+-------------------------------------------------------------------------------------
+     UC3 - Ability to create employee payroll data in the payroll service database
+-------------------------------------------------------------------------------------
+
+ MySQL  localhost:3306 ssl  payroll_service  SQL > show tables;
++---------------------------+
+| Tables_in_payroll_service |
++---------------------------+
+| employee_payroll          |
++---------------------------+
+1 row in set (0.0014 sec)
+ MySQL  localhost:3306 ssl  payroll_service  SQL > describe employee_payroll;
++------------+---------------+------+-----+---------+----------------+
+| Field      | Type          | Null | Key | Default | Extra          |
++------------+---------------+------+-----+---------+----------------+
+| id         | int           | NO   | PRI | NULL    | auto_increment |
+| name       | varchar(100)  | YES  |     | NULL    |                |
+| salary     | decimal(10,2) | YES  |     | NULL    |                |
+| start_date | date          | YES  |     | NULL    |                |
++------------+---------------+------+-----+---------+----------------+
+4 rows in set (0.0017 sec)
+ MySQL  localhost:3306 ssl  payroll_service  SQL > insert into employee_payroll (name,salary,start_date) values
+                                                -> ("sahil",30000,'2024-01-05'),
+                                                -> ("sanjeev",29000,'2024-02,05'),
+                                                -> ("abhishek",28000,'2024-03-05'),
+                                                -> ("rushikesh",27000,'2024-04-05'),
+                                                -> ("rehan",25000,'2024-05-05');
+                                                 MySQL  localhost:3306 ssl  payroll_service  SQL > insert into employee_payroll (name,salary,start_date) values ("sahil",30000,'2024-01-05'), ("sanjeev",29000,'2024-02-05'), ("abhishek",28000,'2024-03-05'), ("rushikesh",27000,'2024-04-05'), ("rehan",25000,'2024-05-05');
+Query OK, 5 rows affected (0.0037 sec)
+
+Records: 5  Duplicates: 0  Warnings: 0
+ MySQL  localhost:3306 ssl  payroll_service  SQL >
