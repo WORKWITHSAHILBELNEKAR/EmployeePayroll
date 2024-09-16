@@ -125,3 +125,56 @@ Fetching global names, object names from `payroll_service` for auto-completion..
 |  5 | rehan     | 25000.00 | 2024-05-05 |
 +----+-----------+----------+------------+
 2 rows in set (0.0005 sec)
+
+
+--------------------------------------------------------------------------------------------------------------
+        UC6 - Ability to add Gender to Employee Payroll Table and Update the Rows of Employee Gender
+--------------------------------------------------------------------------------------------------------------
+
+
+ MySQL  localhost:3306 ssl  payroll_service  SQL > ALTER TABLE employee_payroll ADD COLUMN gender VARCHAR(255) AFTER name;
+Query OK, 0 rows affected (0.0126 sec)
+
+Records: 0  Duplicates: 0  Warnings: 0
+ MySQL  localhost:3306 ssl  payroll_service  SQL > DESCRIBE employee_payroll;
++------------+---------------+------+-----+---------+----------------+
+| Field      | Type          | Null | Key | Default | Extra          |
++------------+---------------+------+-----+---------+----------------+
+| id         | int           | NO   | PRI | NULL    | auto_increment |
+| name       | varchar(100)  | YES  |     | NULL    |                |
+| gender     | varchar(255)  | YES  |     | NULL    |                |
+| salary     | decimal(10,2) | YES  |     | NULL    |                |
+| start_date | date          | YES  |     | NULL    |                |
++------------+---------------+------+-----+---------+----------------+
+5 rows in set (0.0013 sec)
+ MySQL  localhost:3306 ssl  payroll_service  SQL > UPDATE employee_payroll SET gender = 'M' WHERE name = "sahil" OR name = "rushikesh";
+Query OK, 2 rows affected (0.0032 sec)
+
+Rows matched: 2  Changed: 2  Warnings: 0
+ MySQL  localhost:3306 ssl  payroll_service  SQL >  SELECT * FROM employee_payroll;
++----+-----------+--------+----------+------------+
+| id | name      | gender | salary   | start_date |
++----+-----------+--------+----------+------------+
+|  1 | sahil     | M      | 30000.00 | 2024-01-05 |
+|  2 | sanjeev   | NULL   | 29000.00 | 2024-02-05 |
+|  3 | abhishek  | NULL   | 28000.00 | 2024-03-05 |
+|  4 | rushikesh | M      | 27000.00 | 2024-04-05 |
+|  5 | rehan     | NULL   | 25000.00 | 2024-05-05 |
++----+-----------+--------+----------+------------+
+5 rows in set (0.0005 sec)
+ MySQL  localhost:3306 ssl  payroll_service  SQL >  UPDATE employee_payroll SET gender = 'F' WHERE name = "sanjeev" OR name = "rehan" OR name="abhishek";
+Query OK, 3 rows affected (0.0031 sec)
+
+Rows matched: 3  Changed: 3  Warnings: 0
+ MySQL  localhost:3306 ssl  payroll_service  SQL > SELECT * FROM employee_payroll;
++----+-----------+--------+----------+------------+
+| id | name      | gender | salary   | start_date |
++----+-----------+--------+----------+------------+
+|  1 | sahil     | M      | 30000.00 | 2024-01-05 |
+|  2 | sanjeev   | F      | 29000.00 | 2024-02-05 |
+|  3 | abhishek  | F      | 28000.00 | 2024-03-05 |
+|  4 | rushikesh | M      | 27000.00 | 2024-04-05 |
+|  5 | rehan     | F      | 25000.00 | 2024-05-05 |
++----+-----------+--------+----------+------------+
+5 rows in set (0.0006 sec)
+ MySQL  localhost:3306 ssl  payroll_service  SQL >
