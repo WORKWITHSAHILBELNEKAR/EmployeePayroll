@@ -1,0 +1,28 @@
+-------------------------------------------------------------------- 
+          UC1 - Ability to create payroll service database
+--------------------------------------------------------------------
+
+ MySQL  localhost:3306 ssl  SQL > create database payroll_service;
+Query OK, 1 row affected (0.0057 sec)
+ MySQL  localhost:3306 ssl  SQL > show databases;
++--------------------+
+| Database           |
++--------------------+
+| classroom          |
+| college            |
+| employee_payroll   |
+| information_schema |
+| mysql              |
+| payroll_service    |
+| performance_schema |
+| qk                 |
+| sakila             |
+| sys                |
+| world              |
++--------------------+
+11 rows in set (0.0008 sec)
+ MySQL  localhost:3306 ssl  employee_payroll  SQL > use payroll_service
+Default schema set to `payroll_service`.
+Fetching global names, object names from `payroll_service` for auto-completion... Press ^C to stop.
+ MySQL  localhost:3306 ssl  payroll_service  SQL >
+
