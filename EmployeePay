@@ -178,3 +178,82 @@ Rows matched: 3  Changed: 3  Warnings: 0
 +----+-----------+--------+----------+------------+
 5 rows in set (0.0006 sec)
  MySQL  localhost:3306 ssl  payroll_service  SQL >
+
+
+ ---------------------------------------------------------------------------------------------------------
+           UC7 - Ability to find sum, average, min, max and number of male and female employees
+---------------------------------------------------------------------------------------------------------
+
+
+ MySQL  localhost:3306 ssl  payroll_service  SQL > SELECT SUM(salary) FROM employee_payroll WHERE gender = 'M' GROUP BY gender;
++-------------+
+| SUM(salary) |
++-------------+
+|    57000.00 |
++-------------+
+1 row in set (0.0083 sec)
+ MySQL  localhost:3306 ssl  payroll_service  SQL > SELECT SUM(salary) FROM employee_payroll WHERE gender = 'F' GROUP BY gender;
++-------------+
+| SUM(salary) |
++-------------+
+|    82000.00 |
++-------------+
+1 row in set (0.0008 sec)
+ MySQL  localhost:3306 ssl  payroll_service  SQL > SELECT AVG(salary) FROM employee_payroll WHERE gender = 'M' GROUP BY gender;
++--------------+
+| AVG(salary)  |
++--------------+
+| 28500.000000 |
++--------------+
+1 row in set (0.0007 sec)
+ MySQL  localhost:3306 ssl  payroll_service  SQL >
+ MySQL  localhost:3306 ssl  payroll_service  SQL > SELECT AVG(salary) FROM employee_payroll WHERE gender = 'F' GROUP BY gender;
++--------------+
+| AVG(salary)  |
++--------------+
+| 27333.333333 |
++--------------+
+1 row in set (0.0008 sec)
+ MySQL  localhost:3306 ssl  payroll_service  SQL > SELECT MIN(salary) FROM employee_payroll WHERE gender = 'M' GROUP BY gender;
++-------------+
+| MIN(salary) |
++-------------+
+|    27000.00 |
++-------------+
+1 row in set (0.0008 sec)
+ MySQL  localhost:3306 ssl  payroll_service  SQL >  SELECT MIN(salary) FROM employee_payroll WHERE gender = 'F' GROUP BY gender;
++-------------+
+| MIN(salary) |
++-------------+
+|    25000.00 |
++-------------+
+1 row in set (0.0008 sec)
+ MySQL  localhost:3306 ssl  payroll_service  SQL >  SELECT MAX(salary) FROM employee_payroll WHERE gender = 'M' GROUP BY gender;
++-------------+
+| MAX(salary) |
++-------------+
+|    30000.00 |
++-------------+
+1 row in set (0.0008 sec)
+ MySQL  localhost:3306 ssl  payroll_service  SQL >  SELECT MAX(salary) FROM employee_payroll WHERE gender = 'F' GROUP BY gender;
++-------------+
+| MAX(salary) |
++-------------+
+|    29000.00 |
++-------------+
+1 row in set (0.0008 sec)
+ MySQL  localhost:3306 ssl  payroll_service  SQL > SELECT COUNT(salary) FROM employee_payroll WHERE gender = 'M' GROUP BY gender;
++---------------+
+| COUNT(salary) |
++---------------+
+|             2 |
++---------------+
+1 row in set (0.0009 sec)
+ MySQL  localhost:3306 ssl  payroll_service  SQL > SELECT COUNT(salary) FROM employee_payroll WHERE gender = 'F' GROUP BY gender;
++---------------+
+| COUNT(salary) |
++---------------+
+|             3 |
++---------------+
+1 row in set (0.0006 sec)
+ MySQL  localhost:3306 ssl  payroll_service  SQL >
