@@ -91,3 +91,37 @@ Fetching global names, object names from `payroll_service` for auto-completion..
 +----+-----------+----------+------------+
 5 rows in set (0.0005 sec)
  MySQL  localhost:3306 ssl  payroll_service  SQL >
+
+
+ ----------------------------------------------------------------------------------------------------
+       UC5 - Ability to retrieve salary data for a particular employee as well as all employees
+----------------------------------------------------------------------------------------------------
+
+ MySQL  localhost:3306 ssl  payroll_service  SQL > select * from employee_payroll;
++----+-----------+----------+------------+
+| id | name      | salary   | start_date |
++----+-----------+----------+------------+
+|  1 | sahil     | 30000.00 | 2024-01-05 |
+|  2 | sanjeev   | 29000.00 | 2024-02-05 |
+|  3 | abhishek  | 28000.00 | 2024-03-05 |
+|  4 | rushikesh | 27000.00 | 2024-04-05 |
+|  5 | rehan     | 25000.00 | 2024-05-05 |
++----+-----------+----------+------------+
+5 rows in set (0.0006 sec)
+
+ MySQL  localhost:3306 ssl  payroll_service  SQL > select salary from employee_payroll where name = "sahil" ;
++----------+
+| salary   |
++----------+
+| 30000.00 |
++----------+
+1 row in set (0.0006 sec)
+
+ MySQL  localhost:3306 ssl  payroll_service  SQL > SELECT * FROM employee_payroll WHERE start_date BETWEEN CAST('2024-04-01' AS DATE) AND DATE (NOW());
++----+-----------+----------+------------+
+| id | name      | salary   | start_date |
++----+-----------+----------+------------+
+|  4 | rushikesh | 27000.00 | 2024-04-05 |
+|  5 | rehan     | 25000.00 | 2024-05-05 |
++----+-----------+----------+------------+
+2 rows in set (0.0005 sec)
