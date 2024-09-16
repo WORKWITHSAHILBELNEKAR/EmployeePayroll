@@ -71,3 +71,23 @@ Query OK, 5 rows affected (0.0037 sec)
 
 Records: 5  Duplicates: 0  Warnings: 0
  MySQL  localhost:3306 ssl  payroll_service  SQL >
+
+-------------------------------------------------------------------------------------------------
+      UC4 - Ability to retrieve all the employee payroll data in payroll service database
+-------------------------------------------------------------------------------------------------
+
+  MySQL  localhost:3306 ssl  payroll_service  SQL > use payroll_service
+Default schema set to `payroll_service`.
+Fetching global names, object names from `payroll_service` for auto-completion... Press ^C to stop.
+ MySQL  localhost:3306 ssl  payroll_service  SQL > select * from employee_payroll;
++----+-----------+----------+------------+
+| id | name      | salary   | start_date |
++----+-----------+----------+------------+
+|  1 | sahil     | 30000.00 | 2024-01-05 |
+|  2 | sanjeev   | 29000.00 | 2024-02-05 |
+|  3 | abhishek  | 28000.00 | 2024-03-05 |
+|  4 | rushikesh | 27000.00 | 2024-04-05 |
+|  5 | rehan     | 25000.00 | 2024-05-05 |
++----+-----------+----------+------------+
+5 rows in set (0.0005 sec)
+ MySQL  localhost:3306 ssl  payroll_service  SQL >
